@@ -6,9 +6,9 @@ class mailcatcher::params {
   $http_ip          = '0.0.0.0'
   $http_port        = '1080'
   $mailcatcher_path = '/usr/local/bin'
+  $log_path         = '/var/log/mailcatcher'
 
   case $::osfamily {
-
     'Debian': {
       $packages = ['ruby-dev','sqlite3','libsqlite3-dev', 'rubygems']
     }

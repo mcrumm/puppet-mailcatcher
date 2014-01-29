@@ -49,20 +49,16 @@
 #
 # Copyright 2013 Martin Jackson, unless otherwise noted.
 #
-# Todo
-# - Only supports debian based distros need support for other distros
-#   e.g. redhat, centos, or Amazon.
-#
 class mailcatcher (
   $smtp_ip          = $mailcatcher::params::smtp_ip,
   $smtp_port        = $mailcatcher::params::smtp_port,
   $http_ip          = $mailcatcher::params::http_ip,
   $http_port        = $mailcatcher::params::http_port,
-  $mailcatcher_path = $mailcatcher::params::mailcatcher_path
+  $mailcatcher_path = $mailcatcher::params::mailcatcher_path,
+  $log_path         = $mailcatcher::params::log_path
 ) inherits mailcatcher::params {
 
   class {'mailcatcher::package': } ->
-  class {'mailcatcher::config': } ->
-  class {'mailcatcher::service': }
+  class {'mailcatcher::config': }
 
 }

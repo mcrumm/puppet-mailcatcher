@@ -1,11 +1,9 @@
 # class mailcatcher::package
 #
 class mailcatcher::package {
-  package { $mailcatcher::params::packages :
-    ensure => 'present'
-  } ->
+  ensure_packages( $mailcatcher::params::packages ) ->
   package { 'mailcatcher':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'gem'
   }
 }

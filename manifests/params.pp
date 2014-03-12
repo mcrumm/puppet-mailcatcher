@@ -9,10 +9,10 @@ class mailcatcher::params {
   $log_path         = '/var/log/mailcatcher'
 
   case $::osfamily {
-    'Debian': {
+    'debian': {
       $packages = ['ruby-dev', 'sqlite3', 'libsqlite3-dev', 'rubygems']
     }
-    'Redhat': {
+    'redhat': {
       $packages = ['ruby-devel', 'sqlite', 'ruby-sqlite3', 'rubygems']
     }
     default: {

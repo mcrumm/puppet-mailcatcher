@@ -1,13 +1,7 @@
 # class mailcatcher::package
 #
 class mailcatcher::package {
-  each( $mailcatcher::params::packages ) |$package| {
-    if ! defined(Package[$package]) {
-      package { $package:
-        ensure => present
-      }
-    }
-  }
+  ensure_packages( $mailcatcher::params::packages )
 
   package { 'mailcatcher':
     ensure   => present,
